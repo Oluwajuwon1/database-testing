@@ -1,0 +1,69 @@
+-- MySQL dump 10.13  Distrib 8.0.45, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: banking_system
+-- ------------------------------------------------------
+-- Server version	9.6.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
+SET @@SESSION.SQL_LOG_BIN= 0;
+
+--
+-- GTID state at the beginning of the backup 
+--
+
+SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '6be56231-0c46-11f1-af46-842afd3b45bf:1-6501';
+
+--
+-- Table structure for table `transactions`
+--
+
+DROP TABLE IF EXISTS `transactions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `transactions` (
+  `TransactionID` int NOT NULL AUTO_INCREMENT,
+  `AccountID` int DEFAULT NULL,
+  `MerchantID` int DEFAULT NULL,
+  `TransactionAmount` decimal(10,2) DEFAULT NULL,
+  `TransactionDate` datetime DEFAULT NULL,
+  `TransactionType` varchar(50) DEFAULT NULL,
+  `Channel` varchar(20) DEFAULT NULL,
+  `DeviceID` varchar(50) DEFAULT NULL,
+  `IP_Address` varchar(50) DEFAULT NULL,
+  `TransactionDuration` int DEFAULT NULL,
+  `LoginAttempts` int DEFAULT NULL,
+  PRIMARY KEY (`TransactionID`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `transactions`
+--
+
+LOCK TABLES `transactions` WRITE;
+/*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+INSERT INTO `transactions` VALUES (1,101,201,5000.00,'2024-01-01 10:15:00','Debit','ATM','DEV001','192.168.1.10',35,1),(2,102,202,15000.00,'2024-01-02 11:20:00','Credit','POS','DEV002','192.168.1.11',50,2),(3,103,203,2500.00,'2024-01-03 09:45:00','Debit','Online','DEV003','192.168.1.12',20,1),(4,101,201,75000.00,'2024-01-04 14:10:00','Debit','Online','DEV004','192.168.1.13',90,3),(5,104,202,12000.00,'2024-01-05 16:30:00','Credit','POS','DEV005','192.168.1.14',40,1),(6,105,NULL,3000.00,'2024-01-06 12:00:00','Debit','ATM','DEV006','192.168.1.15',25,4),(7,106,203,98000.00,'2024-01-07 18:45:00','Debit','Online','DEV007','192.168.1.16',120,5),(8,107,999,4500.00,'2024-01-08 08:30:00','Credit','POS','DEV008','192.168.1.17',30,1),(9,108,201,600.00,'2024-01-09 10:00:00','Debit','ATM','DEV009','192.168.1.18',15,1),(10,109,202,22000.00,'2024-01-10 13:25:00','Credit','Online','DEV010','192.168.1.19',70,2);
+/*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
+UNLOCK TABLES;
+SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2026-05-01 13:53:57
